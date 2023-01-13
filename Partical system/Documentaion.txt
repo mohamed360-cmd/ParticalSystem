@@ -1,0 +1,20 @@
+This code creates an HTML canvas element, and uses JavaScript to create a visual animation on the canvas. It uses the HTML5 canvas API to draw shapes and lines on the canvas.
+
+The first line var canvas=document.getElementById('canvas1'); selects the canvas element with the id 'canvas1' from the HTML.
+The second line var ctx=canvas.getContext('2d') gets the 2D rendering context of the canvas, which is used to draw shapes and lines on the canvas.
+The third and fourth line canvas.width=window.innerWidth and canvas.height=window.innerHeight sets the width and height of the canvas to the width and height of the browser window.
+The fifth line let ParticlesStored=[] declares an empty array variable named ParticlesStored which will be used to store instances of the Particles class.
+The sixth and seventh line mouse={x:null,y:null,} declares an object variable named mouse with x and y properties that are set to null.
+The eighth line window.addEventListener('mousemove',function(event){ adds an event listener to the window that listens for the 'mousemove' event. When the event is triggered, the function passed as a parameter is executed.
+The ninth and tenth lines mouse.x=event.x; and mouse.y=event.y; update the x and y properties of the mouse object with the current x and y position of the mouse on the screen.
+The eleventh line for(let i=0;i<50;i++){ ParticlesStored.push(new Particles())} starts a for loop that runs 50 times. On each iteration, it creates a new instance of the Particles class and pushes it to the ParticlesStored array.
+The thirteenth line class Particles{ declares a class named Particles.
+The fourteenth line constructor (){ is the constructor method of the class.
+The fifteenth line this.x=mouse.x; and sixteenth line this.y=mouse.y; sets the x and y properties of the class instance to the current x and y position of the mouse on the screen.
+The other properties are this.size,this.speedX,this.speedY are set by random values.
+The method update() updates the x and y properties of the class instance by adding the speedX and speedY values.
+The method draw() draws an arc on the canvas at the x and y position of the class instance with the size property as the radius of the arc and fill it with white color.
+The function particleHandler() loops through the ParticlesStored array, calling the update() and draw() method of each class instance and checking the distance between each pair of instances, if the distance is less than 100, it draws a line between them.
+The function animation() calls the particleHandler() function, clears the canvas and sets the fillStyle to 'rgba(0,0,0,0.01)' and then calls itself again using requestAnimationFrame(animation), which allows the browser to render the animation at a smooth rate.
+Finally, the animation() function is called once to start the animation.
+Overall, the code creates an animation on
